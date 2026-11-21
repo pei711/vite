@@ -289,6 +289,10 @@ See Rolldown's docs for more details: [`require` external modules - Bundling CJS
 
 The `build.rollupOptions.watch.chokidar` option was removed. Please migrate to the [`build.rolldownOptions.watch.watcher`](https://rolldown.rs/reference/InputOptions.watch#watcher) option.
 
+### Removed `build.rollupOptions.output.experimentalMinChunkSize` option
+
+Rolldown does not have a direct equivalent for `experimentalMinChunkSize`. Rollup used this option to merge small chunks after they were generated, while Rolldown's [`output.codeSplitting`](https://rolldown.rs/reference/OutputOptions.codeSplitting) option controls how chunks are formed. You can use `build.rolldownOptions.output.codeSplitting` to configure chunk groups, but the resulting chunk structure may differ. See [Manual Code Splitting - Rolldown](https://rolldown.rs/in-depth/manual-code-splitting) for details.
+
 ### Removed object form `build.rollupOptions.output.manualChunks` and deprecate function form one
 
 The object form `output.manualChunks` option is not supported anymore. The function form `output.manualChunks` is deprecated. Rolldown has the more flexible [`codeSplitting`](https://rolldown.rs/reference/OutputOptions.codeSplitting) option. See Rolldown's docs for more details about `codeSplitting`: [Manual Code Splitting - Rolldown](https://rolldown.rs/in-depth/manual-code-splitting).
